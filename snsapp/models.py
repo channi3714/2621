@@ -20,7 +20,11 @@ class Comment(models.Model):
 
 class FreePost(models.Model):
     title = models.CharField(max_length=200)
-    body = models.TextField()
+    body = models.TextField(default = '')
+    price = models.CharField(max_length=200)
+    size = models.CharField(max_length=200)
+    address = models.CharField(max_length=200)
+    period = models.CharField(max_length=200)
     date = models.DateTimeField(auto_now_add=True)
     author =  models.ForeignKey(User, on_delete=models.CASCADE)
 
