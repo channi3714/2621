@@ -1,11 +1,12 @@
 from django import forms
 from .models import Post, Comment, FreePost, FreeComment
 
+
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = '__all__'
-    
+
     def __init__(self, *args, **kwargs):
         super(PostForm, self).__init__(*args, **kwargs)
 
@@ -15,11 +16,16 @@ class PostForm(forms.ModelForm):
             'rows': 20
         }
 
+        self.fields['address'].widget.attrs = {
+            'class': 'form-control',
+            'placeholder': "주소를 입력해주세요",
+            'rows': 20
+        }
         self.fields['body'].widget.attrs = {
             'class': 'form-control',
-            'placeholder': "글 제목을 입력해주세요",
+            'placeholder': "글을 입력해주세요",
             'rows': 20,
-            'cols' : 100
+            'cols': 100
         }
 
 
@@ -36,6 +42,7 @@ class CommentForm(forms.ModelForm):
             'placeholder': "댓글을 입력해주세요",
             'rows': 10
         }
+
 
 class FreePostForm(forms.ModelForm):
     class Meta:
@@ -55,7 +62,7 @@ class FreePostForm(forms.ModelForm):
             'class': 'form-control',
             'placeholder': "글 제목을 입력해주세요",
             'rows': 20,
-            'cols' : 100
+            'cols': 100
         }
 
 
