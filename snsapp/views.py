@@ -11,9 +11,7 @@ def postcreate(request):
     if request.method == 'POST' or request.method == 'FILES':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
-            post=form.save(commit=False)
-            post.author=request.user
-            post.save()
+            form.save()
             return redirect('home')
     else:
         form = PostForm()

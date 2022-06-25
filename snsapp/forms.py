@@ -4,7 +4,7 @@ from .models import Post, Comment, FreePost, FreeComment
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = '__all__'
+        fields = ['title', 'body']
     
     def __init__(self, *args, **kwargs):
         super(PostForm, self).__init__(*args, **kwargs)
