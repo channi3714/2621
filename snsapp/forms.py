@@ -77,7 +77,7 @@ class FreePostForm(forms.ModelForm):
 
         self.fields['body'].widget.attrs = {
             'class': 'form-control',
-            'placeholder': "글 제목을 입력해주세요",
+            'placeholder': "추가 설명을 입력해주세요",
             'rows': 20,
             'cols' : 100,
         }
